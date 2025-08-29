@@ -29,3 +29,8 @@ steps:
     backendAzureRmStorageAccountName: 'shtestt'
     backendAzureRmContainerName: 'shcont'
     backendAzureRmKey: 'pipe.tf'
+- task: TerraformTask@5
+  inputs:
+    provider: 'azurerm'
+    command: 'apply'
+    environmentServiceNameAzureRM: 'tushar_service'

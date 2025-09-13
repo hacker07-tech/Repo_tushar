@@ -10,7 +10,9 @@ jobs:
 
   - job: initvalidateplan
     pool: Tushar_Agent
+    dependsOn: installjob
     steps:
+
     - task: TerraformTask@5
       inputs:
         provider: 'azurerm'
@@ -38,10 +40,19 @@ jobs:
       inputs:
         notifyUsers: 'tushartripathi21@gmail.com'
         approvers: 'tushartripathi21@gmail.com'
-   
-  - job: 
+    
+  - job: initapply
+    dependsOn: ManualValidation
     pool: Tushar_Agent
     steps:
+    - task: TerraformTask@5
+      inputs:
+        provider: 'azurerm'
+        command: 'init'
+        backendAzureRmStorageAccountName: 'strtu'
+        backendAzureRmContainerName: 'ctu'
+        backendAzureRmKey: 'tushar.tfstate'
+
     - task: TerraformTask@5
       inputs:
         provider: 'azurerm'

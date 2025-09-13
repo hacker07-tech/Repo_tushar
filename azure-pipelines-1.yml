@@ -18,3 +18,14 @@ jobs:
         backendServiceArm: 'tt_service'
         backendAzureRmStorageAccountName: 'strtu'
         backendAzureRmContainerName: 'ctu'
+
+    - task: TerraformTask@5
+      inputs:
+        provider: 'azurerm'
+        command: 'validate'
+
+    - task: TerraformTask@5
+      inputs:
+        provider: 'azurerm'
+        command: 'plan'
+        environmentServiceNameAzureRM: 'tt_service'

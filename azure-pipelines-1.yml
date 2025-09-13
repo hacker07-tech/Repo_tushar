@@ -2,14 +2,14 @@ trigger: none
 
 jobs:
   - job: installjob
-    pool: Agent_Tushar
+    pool: Tushar_Agent
     steps:
     - task: TerraformInstaller@1
       inputs:
         terraformVersion: 'latest'
 
   - job: initvalidateplan
-    pool: Agent_Tushar
+    pool: Tushar_Agent
     steps:
     - task: TerraformTask@5
       inputs:

@@ -18,6 +18,7 @@ jobs:
         backendServiceArm: 'tt_service'
         backendAzureRmStorageAccountName: 'strtu'
         backendAzureRmContainerName: 'ctu'
+        backendAzureRmKey: 'tushar.tfstate'
 
     - task: TerraformTask@5
       inputs:

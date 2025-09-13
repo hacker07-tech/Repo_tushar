@@ -30,3 +30,20 @@ jobs:
         provider: 'azurerm'
         command: 'plan'
         environmentServiceNameAzureRM: 'tt_service'
+
+  - job: Manualvalidation
+    pool: server
+    steps:
+    - task: ManualValidation@1
+      inputs:
+        notifyUsers: 'tushartripathi21@gmail.com'
+        approvers: 'tushartripathi21@gmail.com'
+   
+  - job: 
+    pool: Tushar_Agent
+    steps:
+    - task: TerraformTask@5
+      inputs:
+        provider: 'azurerm'
+        command: 'apply'
+        environmentServiceNameAzureRM: 'tt_service'
